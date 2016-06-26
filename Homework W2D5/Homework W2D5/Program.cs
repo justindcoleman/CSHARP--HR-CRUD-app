@@ -40,7 +40,10 @@ namespace Homework_W2D5
                         case 4:
                             for (int e = 0; e < employeeList.Count; e++)   //for loop that prints employee list
                             {
-                                Console.WriteLine(employeeList[e].EmpName);
+                                Console.WriteLine();
+                                Console.WriteLine("Employee name: {0}", employeeList[e].EmpName);
+                                Console.WriteLine("Employee email address: {0}", employeeList[e].EmpEmail);
+                                Console.WriteLine();
                             }
                             break;
                         case 5:
@@ -55,7 +58,7 @@ namespace Homework_W2D5
                             //should include an if/else statment for "just X employee" or "all satisfactory employees in X dept"
                             break;
                         case 7:
-                            
+
                             ContinueProgram(ref programActive);
                             break;
                         default:
@@ -81,7 +84,7 @@ namespace Homework_W2D5
             Console.WriteLine("Employee first and last name: ");
             string name = Console.ReadLine();
             newEmp.EmpName = name;
-            
+
             Console.WriteLine("Employee email address: ");
             string email = Console.ReadLine();
             newEmp.EmpEmail = email;
