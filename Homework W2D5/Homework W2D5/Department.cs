@@ -10,7 +10,7 @@ namespace Homework_W2D5
     {
         string deptName;
 
-        List<Employee> employeeList = new List<Employee>();
+        
 
         public string DeptName
         {
@@ -24,17 +24,17 @@ namespace Homework_W2D5
                 deptName = value;
             }
         }
-        public List<Employee> EmployeeList
-        {
-            get
-            {
-                return employeeList;
-            }
+        //public List<Employee> EmployeeList
+        //{
+        //    get
+        //    {
+        //        return employeeList;
+        //    }
 
-            set
-            {
-                employeeList = value;
-            }
-        }
+        //    set
+        //    {
+        //        employeeList = value;
+        //    }
+        //}
     }
 }

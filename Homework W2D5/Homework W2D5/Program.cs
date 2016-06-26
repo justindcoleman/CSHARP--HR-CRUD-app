@@ -8,18 +8,28 @@ namespace Homework_W2D5
 {
     class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
             bool programActive = true;
             bool empCreated = false;
+            Employee tempEmp = new Employee();
+
+            List<Employee> employeeList = new List<Employee>();
 
             while (programActive)
             {
                 double percent = 0;
 
                 Console.WriteLine(empCreated);
-                Console.WriteLine(Employeelist[0]);
+                CreateEmployee(ref empCreated, employeeList);
+                foreach (Employee e in employeeList)
+                {
+
+                    Console.WriteLine(employeeList[e].EmpName);
+                }
+
             }
+
         }
         //public void reviewEmployee(List<Employee> employeeList)
         //{
@@ -28,7 +38,7 @@ namespace Homework_W2D5
         //        Console.WriteLine(employeeList[emp]);
         //    }
         //}
-        public void CreateEmployee(ref bool empCreated, List<Employee> EmployeeList)
+        static void CreateEmployee(ref bool empCreated, List<Employee> EmployeeList)
         {
             Employee newEmp = new Employee();
             Console.WriteLine("Employee first and last name: ");
