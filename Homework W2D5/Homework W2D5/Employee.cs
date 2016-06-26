@@ -89,6 +89,19 @@ namespace Homework_W2D5
             }
         }
 
+        public Department EmpDepart
+        {
+            get
+            {
+                return empDepart;
+            }
+
+            set
+            {
+                empDepart = value;
+            }
+        }
+
         public Employee()
         { }
 

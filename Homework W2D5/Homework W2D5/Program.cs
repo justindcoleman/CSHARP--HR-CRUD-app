@@ -45,8 +45,12 @@ namespace Homework_W2D5
                                 Console.WriteLine("Employee email address: {0}", employeeList[e].EmpEmail);
                                 Console.WriteLine("Employee phone number: {0}", employeeList[e].EmpPhone);
                                 Console.WriteLine("Employee salary: {0}", employeeList[e].EmpSalary);
+                                Console.WriteLine("Employee is Satisfactory: {0}", employeeList[e].EmpSatisfactory);
+                                Console.WriteLine("Employee reviews:\n{0}", employeeList[e].EmpReview);
+                                Console.WriteLine("Employee's department is: {0}", employeeList[e].EmpDepart);
 
-                                Console.WriteLine();
+                                Console.WriteLine("Press any key to continue");
+                                Console.ReadLine();
                             }
                             break;
                         case 5:
