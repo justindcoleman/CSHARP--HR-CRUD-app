@@ -100,6 +100,10 @@ namespace Homework_W2D5
             double salary = Convert.ToInt64(Console.ReadLine()); //this is an iffy implmentation, will change later if i have the time
             newEmp.EmpSalary = salary;
 
+            newEmp.EmpSatisfactory = true;
+            newEmp.EmpReview = "";
+
+
             EmployeeList.Add(newEmp);
             empCreated = true;
         }
