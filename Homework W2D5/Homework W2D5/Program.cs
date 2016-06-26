@@ -38,7 +38,15 @@ namespace Homework_W2D5
                             CreateDepartment(departmentList);
                             break;
                         case 3:
-                            Console.WriteLine("review employee not yet implmented");
+                            ;
+                            for (int e = 0; e < employeeList.Count; e++)   //for loop that prints employee list
+                            {
+                                Console.WriteLine();
+                                Console.WriteLine("Employee name: {0}", employeeList[e].EmpName);
+                            }
+                            Console.WriteLine("review employee not yet implemented");
+                            //unsure how to let user choose from a list that i don't know the extent of. maybe i can use an employee id as a constant
+                            //and somehow they choose that?  but i'm still not sure how to set up actions for an unknown number of choices.
                             break;
                         case 4:
                             for (int e = 0; e < employeeList.Count; e++)   //for loop that prints employee list
@@ -50,7 +58,7 @@ namespace Homework_W2D5
                                 Console.WriteLine("Employee salary: {0}", employeeList[e].EmpSalary);
                                 Console.WriteLine("Employee is Satisfactory: {0}", employeeList[e].EmpSatisfactory);
                                 Console.WriteLine("Employee reviews:\n{0}", employeeList[e].EmpReview);
-                                Console.WriteLine("Employee's department is: {0}", employeeList[e].EmpDepart);
+                                Console.WriteLine("Employee's department is: {0}", employeeList[e].EmpDepart.DeptName);
 
                                 Console.WriteLine("Press any key to continue");
                                 Console.ReadLine();
@@ -110,9 +118,10 @@ namespace Homework_W2D5
             double salary = Convert.ToInt64(Console.ReadLine()); //this is an iffy implmentation, will change later if i have the time
             newEmp.EmpSalary = salary;
 
-            //Console.WriteLine("Employee's department: ");
-            //Department dept = Console.ReadLine();
-            //newEmp.EmpDepart = dept;
+            Console.WriteLine("Employee's department: ");
+            Department dept = new Department();
+            dept.DeptName = Console.ReadLine();
+            newEmp.EmpDepart = dept;
 
             newEmp.EmpSatisfactory = true;
             newEmp.EmpReview = "";
