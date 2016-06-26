@@ -11,7 +11,7 @@ namespace Homework_W2D5
         private string deptName;
 
         public Department()
-            {}
+        { }
 
         public string DeptName
         {
@@ -25,6 +25,6 @@ namespace Homework_W2D5
                 deptName = value;
             }
         }
-       
+
     }
 }

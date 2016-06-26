@@ -110,9 +110,9 @@ namespace Homework_W2D5
             double salary = Convert.ToInt64(Console.ReadLine()); //this is an iffy implmentation, will change later if i have the time
             newEmp.EmpSalary = salary;
 
-            Console.WriteLine("Employee's department: ");
-            Department dept = Console.ReadLine();
-            newEmp.EmpDepart = dept;
+            //Console.WriteLine("Employee's department: ");
+            //Department dept = Console.ReadLine();
+            //newEmp.EmpDepart = dept;
 
             newEmp.EmpSatisfactory = true;
             newEmp.EmpReview = "";
