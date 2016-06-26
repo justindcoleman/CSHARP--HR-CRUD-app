@@ -13,8 +13,11 @@ namespace Homework_W2D5
             bool programActive = true;
             bool empCreated = false;
             Employee tempEmp = new Employee();
+            Department tempDept = new Department();
 
             List<Employee> employeeList = new List<Employee>();
+            List<Department> departmentList = new List<Department>();
+
 
             while (programActive)
             {
@@ -32,7 +35,7 @@ namespace Homework_W2D5
                             CreateEmployee(ref empCreated, employeeList);
                             break;
                         case 2:
-                            Console.WriteLine("create department not yet implmented");
+                            CreateDepartment(departmentList);
                             break;
                         case 3:
                             Console.WriteLine("review employee not yet implmented");
@@ -54,11 +57,14 @@ namespace Homework_W2D5
                             }
                             break;
                         case 5:
-                            Console.WriteLine("list all departments not yet implmented");
-                            //for (int d = 0; d < XXXX.Count; d++)   //for loop that prints department list
-                            //{
-                            //    Console.WriteLine(XXXX[d].deptName);
-                            //}
+                            for (int d = 0; d < departmentList.Count; d++)   //for loop that prints department list
+                            {
+                                Console.WriteLine();
+                                Console.WriteLine("Department name: {0}", departmentList[d].DeptName);
+
+                                Console.WriteLine("Press any key to continue");
+                                Console.ReadLine();
+                            }
                             break;
                         case 6:
                             Console.WriteLine("give raise not yet implmented");
@@ -111,12 +117,21 @@ namespace Homework_W2D5
             EmployeeList.Add(newEmp);
             empCreated = true;
         }
+        static void CreateDepartment(List<Department> departmentList)
+        {
+            Department newDept = new Department();
+            Console.WriteLine("Deptartment Name: ");
+            string name = Console.ReadLine();
+            newDept.DeptName = name;
+
+            departmentList.Add(newDept);
+        }
         static void MakeMenu()
         {
             Console.WriteLine("Choose an option: \n1. Create an employee\n2. Create a department\n3. Review an employee\n4. Display all employees\n5. Display all department\n6. Give raise\n7. Quit program");
         }
         static bool ContinueProgram(ref bool programActive)
-        {// this is in need of error handling.  probaly .tolower then char conversion.
+        {// this is in need of error handling.  probably tolower then char conversion.
             Console.WriteLine("Do you want to quit?");
             string quitAnswer = Console.ReadLine();
             if (quitAnswer == "y")

@@ -8,9 +8,10 @@ namespace Homework_W2D5
 {
     public class Department
     {
-        string deptName;
+        private string deptName;
 
-        
+        public Department()
+            {}
 
         public string DeptName
         {
@@ -24,17 +25,6 @@ namespace Homework_W2D5
                 deptName = value;
             }
         }
-        //public List<Employee> EmployeeList
-        //{
-        //    get
-        //    {
-        //        return employeeList;
-        //    }
-
-        //    set
-        //    {
-        //        employeeList = value;
-        //    }
-        //}
+       
     }
 }
