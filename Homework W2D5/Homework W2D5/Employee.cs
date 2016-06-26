@@ -12,7 +12,7 @@ namespace Homework_W2D5
         string empEmail;
         string empReview;
         bool empSatisfactory;
-        int empPhone;
+        Int64 empPhone;
         double empSalary;
         Department empDepart;
 
@@ -64,7 +64,7 @@ namespace Homework_W2D5
                 empSatisfactory = value;
             }
         }
-        public int EmpPhone
+        public Int64 EmpPhone
         {
             get
             {
