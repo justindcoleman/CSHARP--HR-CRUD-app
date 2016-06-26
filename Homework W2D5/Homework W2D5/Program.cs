@@ -44,6 +44,8 @@ namespace Homework_W2D5
                                 Console.WriteLine("Employee name: {0}", employeeList[e].EmpName);
                                 Console.WriteLine("Employee email address: {0}", employeeList[e].EmpEmail);
                                 Console.WriteLine("Employee phone number: {0}", employeeList[e].EmpPhone);
+                                Console.WriteLine("Employee salary: {0}", employeeList[e].EmpSalary);
+
                                 Console.WriteLine();
                             }
                             break;
@@ -93,6 +95,10 @@ namespace Homework_W2D5
             Console.WriteLine("Employee phone number: ");
             Int64 phoneNumber = Convert.ToInt64(Console.ReadLine()); //this is an iffy implmentation, will change later if i have the time
             newEmp.EmpPhone = phoneNumber;
+
+            Console.WriteLine("Employee starting salary: ");
+            double salary = Convert.ToInt64(Console.ReadLine()); //this is an iffy implmentation, will change later if i have the time
+            newEmp.EmpSalary = salary;
 
             EmployeeList.Add(newEmp);
             empCreated = true;
