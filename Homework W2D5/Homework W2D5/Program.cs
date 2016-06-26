@@ -56,7 +56,7 @@ namespace Homework_W2D5
                             break;
                         case 7:
                             
-                            ContinueProgram(programActive);
+                            ContinueProgram(ref programActive);
                             break;
                         default:
                             break;
@@ -89,11 +89,11 @@ namespace Homework_W2D5
         {
             Console.WriteLine("Choose an option: \n1. Create an employee\n2. Create a department\n3. Review an employee\n4. Display all employees\n5. Display all department\n6. Give raise\n7. Quit program");
         }
-        static bool ContinueProgram(bool programActive)
+        static bool ContinueProgram(ref bool programActive)
         {
-            Console.WriteLine("Do you want to keep working? (y/n)");
-            string answer = Console.ReadLine();
-            if (answer != "y")
+            Console.WriteLine("Do you want to quit?");
+            string quitAnswer = Console.ReadLine();
+            if (quitAnswer == "y")
                 return programActive = false;
             else
                 return programActive = true;
