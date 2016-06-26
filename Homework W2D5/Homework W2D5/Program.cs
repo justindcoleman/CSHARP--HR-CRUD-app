@@ -22,11 +22,16 @@ namespace Homework_W2D5
 
                 Console.WriteLine(empCreated);
                 CreateEmployee(ref empCreated, employeeList);
-                foreach (Employee e in employeeList)
+                //int employeeListLength = employeeList.Count;
+                for (int e = 0; e < employeeList.Count; e++)
                 {
-
                     Console.WriteLine(employeeList[e].EmpName);
                 }
+                //foreach (Employee e in employeeList)
+                //{
+
+                //    Console.WriteLine(employeeList[e.EmpName]);
+                //}
 
             }
 
