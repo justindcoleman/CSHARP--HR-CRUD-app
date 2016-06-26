@@ -76,13 +76,18 @@ namespace Homework_W2D5
         }
 
         static void CreateEmployee(ref bool empCreated, List<Employee> EmployeeList)
-        {
+        {//a whole bunch of error handling is probably needed here.  also a way to back out and/or head backwards would be nice to add.
             Employee newEmp = new Employee();
             Console.WriteLine("Employee first and last name: ");
             string name = Console.ReadLine();
             newEmp.EmpName = name;
+            
+            Console.WriteLine("Employee email address: ");
+            string email = Console.ReadLine();
+            newEmp.EmpEmail = email;
+
+
             EmployeeList.Add(newEmp);
-            //more stuff
             empCreated = true;
         }
         static void MakeMenu()
@@ -90,7 +95,7 @@ namespace Homework_W2D5
             Console.WriteLine("Choose an option: \n1. Create an employee\n2. Create a department\n3. Review an employee\n4. Display all employees\n5. Display all department\n6. Give raise\n7. Quit program");
         }
         static bool ContinueProgram(ref bool programActive)
-        {
+        {// this is in need of error handling.  probaly .tolower then char conversion.
             Console.WriteLine("Do you want to quit?");
             string quitAnswer = Console.ReadLine();
             if (quitAnswer == "y")
