@@ -20,12 +20,57 @@ namespace Homework_W2D5
             {
                 double percent = 0;
 
-                Console.WriteLine(empCreated);
-                CreateEmployee(ref empCreated, employeeList);
-
-                for (int e = 0; e < employeeList.Count; e++)
+                MakeMenu();
+                string userMenuChoice = Console.ReadLine();
+                int menuChoiceInt;
+                bool menuChoiceBool = int.TryParse(userMenuChoice, out menuChoiceInt);
+                if (menuChoiceBool == true)
                 {
-                    Console.WriteLine(employeeList[e].EmpName);
+                    switch (menuChoiceInt)
+                    {
+                        case 1:
+                            CreateEmployee(ref empCreated, employeeList);
+                            break;
+                        case 2:
+                            Console.WriteLine("create department not yet implmented");
+                            break;
+                        case 3:
+                            Console.WriteLine("review employee not yet implmented");
+                            break;
+                        case 4:
+                            for (int e = 0; e < employeeList.Count; e++)   //for loop that prints employee list
+                            {
+                                Console.WriteLine(employeeList[e].EmpName);
+                            }
+                            break;
+                        case 5:
+                            Console.WriteLine("list all departments not yet implmented");
+                            //for (int d = 0; d < XXXX.Count; d++)   //for loop that prints department list
+                            //{
+                            //    Console.WriteLine(XXXX[d].deptName);
+                            //}
+                            break;
+                        case 6:
+                            Console.WriteLine("give raise not yet implmented");
+                            //should include an if/else statment for "just X employee" or "all satisfactory employees in X dept"
+                            break;
+                        case 7:
+                            
+                            ContinueProgram(programActive);
+                            break;
+                        default:
+                            break;
+                    }
+
+
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.WriteLine("Why do you think it's acceptable to enter anything other than a number?");
+                    Console.WriteLine();
                 }
             }
         }
@@ -40,6 +85,18 @@ namespace Homework_W2D5
             //more stuff
             empCreated = true;
         }
-
+        static void MakeMenu()
+        {
+            Console.WriteLine("Choose an option: \n1. Create an employee\n2. Create a department\n3. Review an employee\n4. Display all employees\n5. Display all department\n6. Give raise\n7. Quit program");
+        }
+        static bool ContinueProgram(bool programActive)
+        {
+            Console.WriteLine("Do you want to keep working? (y/n)");
+            string answer = Console.ReadLine();
+            if (answer != "y")
+                return programActive = false;
+            else
+                return programActive = true;
+        }
     }
 }
