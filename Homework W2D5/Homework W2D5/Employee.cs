@@ -107,13 +107,8 @@ namespace Homework_W2D5
 
         public void empRaise(double percent)
         {
-            this.EmpSalary = EmpSalary + (EmpSalary * percent);
+            this.EmpSalary = EmpSalary + (EmpSalary * percent / 100);
         }
-
-        public void empReviewCreate(string mainEmpReview, bool mainEmpSatis)
-        {
-            this.EmpReview = mainEmpReview;
-            this.EmpSatisfactory = mainEmpSatis;
-        }
+        
     }
 }

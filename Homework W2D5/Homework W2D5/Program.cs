@@ -31,14 +31,18 @@ namespace Homework_W2D5
                 {
                     switch (menuChoiceInt)
                     {
+                        #region switch 1
                         case 1:
                             CreateEmployee(ref empCreated, employeeList);
                             break;
+                        #endregion
+                        #region switch 2
                         case 2:
                             CreateDepartment(departmentList);
                             break;
+                        #endregion
+                        #region switch 3
                         case 3:
-                            ;
                             for (int e = 0; e < employeeList.Count; e++)   //for loop that prints employee list
                             {
                                 Console.WriteLine();
@@ -67,16 +71,14 @@ namespace Homework_W2D5
                                 }
 
                                 else
-                                Console.WriteLine("Pick true or false.");
+                                    Console.WriteLine("Pick true or false.");
                             }
 
                             else
                                 Console.WriteLine("Pick an actual employee, genius.");
-
-                            Console.WriteLine("review employee not yet fully implemented");
-                            //unsure how to let user choose from a list that i don't know the extent of. maybe i can use an employee id as a constant
-                            //and somehow they choose that?  but i'm still not sure how to set up actions for an unknown number of choices.
                             break;
+                        #endregion
+                        #region switch 4
                         case 4:
                             for (int e = 0; e < employeeList.Count; e++)   //for loop that prints employee list
                             {
@@ -93,6 +95,8 @@ namespace Homework_W2D5
                                 Console.ReadLine();
                             }
                             break;
+                        #endregion
+                        #region switch 5
                         case 5:
                             for (int d = 0; d < departmentList.Count; d++)   //for loop that prints department list
                             {
@@ -103,16 +107,52 @@ namespace Homework_W2D5
                                 Console.ReadLine();
                             }
                             break;
+                        #endregion
+                        #region switch 6
                         case 6:
-                            Console.WriteLine("give raise not yet implmented");
-                            //should include an if/else statment for "just X employee" or "all satisfactory employees in X dept"
+                            Console.WriteLine("Would you like to give a raise to:\n1. a single employee\n2. all satisfactory employees in a department");
+                            int userRaiseAnswer = Convert.ToInt32(Console.ReadLine());
+                            if (userRaiseAnswer == 1)
+                            {
+                                for (int e = 0; e < employeeList.Count; e++)   //for loop that prints employee list
+                                {
+                                    Console.WriteLine();
+                                    Console.WriteLine("{0} - {1}", e, employeeList[e].EmpName);
+                                }
+                                Console.WriteLine("Please choose an employee to give a raise: ");
+                                int userEmpRaiseChoice = Convert.ToInt32(Console.ReadLine());
+                                if (userEmpRaiseChoice <= employeeList.Count)
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine("{0}'s review history:\n{1}", employeeList[userEmpRaiseChoice].EmpName, employeeList[userEmpRaiseChoice].EmpReview);
+                                    Console.WriteLine("What percentage raise would you like to give {0}?", employeeList[userEmpRaiseChoice].EmpName);
+                                    percent = Convert.ToInt32(Console.ReadLine()); // <- DANGEROUSSSSS
+                                    employeeList[userEmpRaiseChoice].empRaise(percent);
+                                }
+                                else
+                                    Console.WriteLine("Please pick a number from 0 to {0}", employeeList.Count);
+                            }
+                            else if (userRaiseAnswer == 2)
+                            {
+                                for (int d = 0; d < departmentList.Count; d++)   //for loop that prints department list
+                                {
+                                    Console.WriteLine("Department name: {0}", departmentList[d].DeptName);
+                                }
+                                Console.WriteLine("Here are all of the satisfactory employees in {0}", departmentList);
+                            }
+                            else
+                                Console.WriteLine("Please select 1 or 2");
+
                             break;
+                        #endregion
+                        #region switch 7
                         case 7:
 
                             ContinueProgram(ref programActive);
                             break;
                         default:
                             break;
+                            #endregion
                     }
 
 
