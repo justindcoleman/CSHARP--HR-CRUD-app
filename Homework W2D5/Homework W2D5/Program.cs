@@ -35,6 +35,7 @@ namespace Homework_W2D5
                         #region switch 1
                         case 1:
                             CreateEmployee(ref empCreated, employeeList, departmentList);
+                            DepartmentListDistinct(ref departmentList);
                             break;
                         #endregion
                         #region switch 2
@@ -88,9 +89,9 @@ namespace Homework_W2D5
                                 Console.WriteLine("Employee email address: {0}", employeeList[e].EmpEmail);
                                 Console.WriteLine("Employee phone number: {0}", employeeList[e].EmpPhone);
                                 Console.WriteLine("Employee salary: {0}", employeeList[e].EmpSalary);
+                                Console.WriteLine("Employee's department is: {0}", employeeList[e].EmpDepart.DeptName);
                                 Console.WriteLine("Employee is Satisfactory: {0}", employeeList[e].EmpSatisfactory);
                                 Console.WriteLine("Employee reviews:\n{0}", employeeList[e].EmpReview);
-                                Console.WriteLine("Employee's department is: {0}", employeeList[e].EmpDepart.DeptName);
 
                                 Console.WriteLine("Press any key to continue");
                                 Console.ReadLine();
@@ -139,12 +140,22 @@ namespace Homework_W2D5
                                 {
                                     Console.WriteLine("Department name: {0}", departmentList[d].DeptName);
                                 }
-                                Console.WriteLine("Here are all of the satisfactory employees in:\n");
-                                for (int se = 0; se > employeeList.Count; se++)
+                                Console.WriteLine("Choose a department.");
+                                int userRaiseDeptChoice = Convert.ToInt32(Console.ReadLine());
+                                if (userRaiseDeptChoice <= departmentList.Count)
                                 {
-                                    if (employeeList[se].EmpSatisfactory == true)
+                                    Console.Clear();
+                                    Console.WriteLine();
+                                    Console.WriteLine("Here are all of the satisfactory employees in:\n");
+                                    for (int se = 0; se > employeeList.Count; se++)
+                                    {
                                         Console.WriteLine(employeeList[se].EmpName);
-
+                                        Console.WriteLine(employeeList[se].EmpSatisfactory);
+                                        if (employeeList[se].EmpSatisfactory == true)
+                                            Console.WriteLine(employeeList[se].EmpName);
+                                        else
+                                            Console.WriteLine("this should have printed all the satifactory employees in a dept");
+                                    }
                                 }
                             }
                             else
@@ -202,6 +213,7 @@ namespace Homework_W2D5
             newEmp.EmpSatisfactory = true;
             newEmp.EmpReview = "";
 
+
             DepartmentList.Add(newEmp.EmpDepart);
             EmployeeList.Add(newEmp);
             empCreated = true;
@@ -227,6 +239,12 @@ namespace Homework_W2D5
                 return programActive = false;
             else
                 return programActive = true;
+        }
+        static List<Department> DepartmentListDistinct(ref List<Department> departmentList)
+        {
+            List<Department> departmentListDistinct = departmentList.Distinct().ToList();
+            departmentList = departmentListDistinct;
+            return departmentList;
         }
     }
 }
