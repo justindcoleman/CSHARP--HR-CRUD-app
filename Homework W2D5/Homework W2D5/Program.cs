@@ -63,7 +63,7 @@ namespace Homework_W2D5
                                     employeeList[userEmpRevChoice].EmpSatisfactory = false;
                                     Console.WriteLine("Write employee review:\n");
                                     string userEmployeeActualReview = Console.ReadLine();
-                                    employeeList[userEmpRevChoice].EmpReview = userEmployeeActualReview;
+                                    employeeList[userEmpRevChoice].EmpReview = employeeList[userEmpRevChoice].EmpReview + "\n" + userEmployeeActualReview;
                                 }
 
                                 else
