@@ -42,9 +42,38 @@ namespace Homework_W2D5
                             for (int e = 0; e < employeeList.Count; e++)   //for loop that prints employee list
                             {
                                 Console.WriteLine();
-                                Console.WriteLine("Employee name: {0}", employeeList[e].EmpName);
+                                Console.WriteLine("{0} - {1}", e, employeeList[e].EmpName);
                             }
-                            Console.WriteLine("review employee not yet implemented");
+                            int userEmpRevChoice = Convert.ToInt32(Console.ReadLine());
+                            if (userEmpRevChoice <= employeeList.Count)
+                            {
+                                Console.WriteLine("Employee {0}\nCurrent Satifaction status: {1}\nEmployee review history:\n{2}", employeeList[userEmpRevChoice].EmpName, employeeList[userEmpRevChoice].EmpSatisfactory, employeeList[userEmpRevChoice].EmpReview);
+                                Console.WriteLine("Employee is satisfactory(t/f): ");
+                                string userEmpRevSatis = Console.ReadLine();
+                                string userEmpRevSatisLower = userEmpRevSatis.ToLower();
+                                if (userEmpRevSatisLower == "true" || userEmpRevSatisLower == "t")
+                                {
+                                    employeeList[userEmpRevChoice].EmpSatisfactory = true;
+                                    Console.WriteLine("Write employee review:\n");
+                                    string userEmployeeActualReview = Console.ReadLine();
+                                    employeeList[userEmpRevChoice].EmpReview = userEmployeeActualReview;
+                                }
+                                else if (userEmpRevSatisLower == "false" || userEmpRevSatisLower == "f")
+                                {
+                                    employeeList[userEmpRevChoice].EmpSatisfactory = false;
+                                    Console.WriteLine("Write employee review:\n");
+                                    string userEmployeeActualReview = Console.ReadLine();
+                                    employeeList[userEmpRevChoice].EmpReview = userEmployeeActualReview;
+                                }
+
+                                else
+                                Console.WriteLine("Pick true or false.");
+                            }
+
+                            else
+                                Console.WriteLine("Pick an actual employee, genius.");
+
+                            Console.WriteLine("review employee not yet fully implemented");
                             //unsure how to let user choose from a list that i don't know the extent of. maybe i can use an employee id as a constant
                             //and somehow they choose that?  but i'm still not sure how to set up actions for an unknown number of choices.
                             break;
