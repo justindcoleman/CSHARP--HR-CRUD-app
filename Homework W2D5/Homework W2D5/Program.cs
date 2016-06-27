@@ -19,6 +19,7 @@ namespace Homework_W2D5
             List<Department> departmentList = new List<Department>();
 
 
+
             while (programActive)
             {
                 double percent = 0;
@@ -33,7 +34,7 @@ namespace Homework_W2D5
                     {
                         #region switch 1
                         case 1:
-                            CreateEmployee(ref empCreated, employeeList);
+                            CreateEmployee(ref empCreated, employeeList, departmentList);
                             break;
                         #endregion
                         #region switch 2
@@ -138,7 +139,13 @@ namespace Homework_W2D5
                                 {
                                     Console.WriteLine("Department name: {0}", departmentList[d].DeptName);
                                 }
-                                Console.WriteLine("Here are all of the satisfactory employees in {0}", departmentList);
+                                Console.WriteLine("Here are all of the satisfactory employees in:\n");
+                                for (int se = 0; se > employeeList.Count; se++)
+                                {
+                                    if (employeeList[se].EmpSatisfactory == true)
+                                        Console.WriteLine(employeeList[se].EmpName);
+
+                                }
                             }
                             else
                                 Console.WriteLine("Please select 1 or 2");
@@ -168,7 +175,7 @@ namespace Homework_W2D5
             }
         }
 
-        static void CreateEmployee(ref bool empCreated, List<Employee> EmployeeList)
+        static void CreateEmployee(ref bool empCreated, List<Employee> EmployeeList, List<Department> DepartmentList)
         {//a whole bunch of error handling is probably needed here.  also a way to back out and/or head backwards would be nice to add.
             Employee newEmp = new Employee();
             Console.WriteLine("Employee first and last name: ");
@@ -195,7 +202,7 @@ namespace Homework_W2D5
             newEmp.EmpSatisfactory = true;
             newEmp.EmpReview = "";
 
-
+            DepartmentList.Add(newEmp.EmpDepart);
             EmployeeList.Add(newEmp);
             empCreated = true;
         }
